@@ -1,6 +1,6 @@
 class Cocktail
 
-  attr_accessor :name, :url, :description
+  attr_accessor :name, :url, :description, :ingredients, :recipe
 
   @@all = []
 
@@ -11,4 +11,4 @@ class Cocktail
   def self.all
     @@all
   end
-end 
+end

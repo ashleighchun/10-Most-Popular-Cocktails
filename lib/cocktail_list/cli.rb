@@ -39,6 +39,8 @@ class CLI
         puts "more info until deal 2"
       when "list"
         print_cocktails
+      else
+        puts "Not sure what you want, type list or exit."
       end
     end
   end
