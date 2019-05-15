@@ -4,7 +4,7 @@ class BestCocktails::Cocktail
 
   @@all = []
 
-  def self.scrape_deals
+  def self.scrape_cocktails
     cocktails = []
 
     cocktails

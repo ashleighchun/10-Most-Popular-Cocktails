@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Ashleigh Chun"]
   s.email       = 'ashleigh.chun@gmail.com'
   s.files       = ["lib/cocktail_list.rb", "lib/best_cocktails/cli.rb", "lib/best_cocktails/scraper.rb", "lib/best_cocktails/cocktail.rb", "config/environment.rb"]
-  s.homepage    = 'tbd'
+  s.homepage    = 'https://rubygems.org/gems/best_cocktails'
   s.license     = 'MIT'
   s.executables << 'best_cocktails'
 
