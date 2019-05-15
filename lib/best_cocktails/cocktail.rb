@@ -4,34 +4,43 @@ class BestCocktails::Cocktail
 
   @@all = []
 
-  def initialize(name = nil, url = nil, description = nil)
-    @name = name
-    @url = url
-    @description = description
-    @@all << self
-  end
+  def self.scrape_deals
+    cocktails = []
 
-  def self.all
-    @@all
+    cocktails
   end
+  #def self.new_from_index_page()
+    #self.new(
+      #r.css("").text,
+    #)
+  #def initialize(name = nil, url = nil, description = nil)
+    #@name = name
+  #  @url = url
+    #@description = description
+    #@@all << self
+  #end
 
-  def self.find(id)
-    self.all[id-1]
-  end
+  #def self.all
+  #  @@all
+  #end
 
-  def directions
-    @directions ||= doc.css("").text
-  end
+  #def self.find(id)
+    #self.all[id-1]
+  #end
 
-  def what_you_need
-    @what_you_need ||= doc.css("").text
-  end
+  #def directions
+    #@directions ||= doc.css("").text
+  #end
 
-  def prep_time
-    @prep_time ||=doc.css("").text
-  end
+  #def what_you_need
+    #@what_you_need ||= doc.css("").text
+  #end
 
-  def doc
-    @doc ||= Nokogiri::HTML(open(self.url))
-  end
+  #def prep_time
+    #@prep_time ||=doc.css("").text
+  #end
+
+  #def doc
+    #@doc ||= Nokogiri::HTML(open(self.url))
+  #end
 end
