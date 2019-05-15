@@ -2,4 +2,4 @@
 
 require_relative "../lib/cocktail_list"
 
-CLI.new.run 
+CLI.new.run
