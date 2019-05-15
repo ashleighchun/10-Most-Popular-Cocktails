@@ -1,17 +1,17 @@
-# 10 Best Cocktails 
+# 10 Best Cocktails
 ### This is an adaptation of the original gem written by ashleighchun. I have added in CSS selectors in the cocktail.rb file, and updated the scraped urls to use https instead of http.
 
-This Ruby Gem provides a CLI to view the 50 best restaurants in the World as per the San Pellegrino sponsored 50 Best Restaurants in the World website.
+This Ruby Gem provides a CLI to view the 10 best cocktails and a guide to how to make them as per the '10 Most Popular Cocktails to Order at Bars 2018' article on the Esquire website.
 
 ## Installation
 
-    $ gem install worlds-best-restaurants
+    $ gem install best-cocktails
 
 ## Usage
 
 Type the below and follow the on screen prompts.
 
-    $ worlds-best-restaurants
+    $ best-cocktails
 
 ## Development
 
@@ -21,7 +21,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/dannyd4315/worlds-best-restaurants-cli-gem. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ashleighchun/10-Most-Popular-Cocktails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
