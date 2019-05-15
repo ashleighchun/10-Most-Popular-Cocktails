@@ -1,4 +1,4 @@
-#class Scraper
+class BestCocktails::Scraper
   #def self.scrape_cocktails
     #binding.pry
     #html = open("https://www.esquire.com/food-drink/drinks/g215/popular-bar-drinks-0609/")
@@ -13,4 +13,4 @@
   #def self.scrape_cocktails
     #add attributes to cocktail which is an object
   #end
-#end
+end

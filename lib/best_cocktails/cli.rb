@@ -1,4 +1,4 @@
-class CLI
+class BestCocktails::CLI
 
   def run
     #puts "Welcome to the 10 Best Cocktail Recipes"
@@ -8,7 +8,7 @@ class CLI
     #puts "     "
     #Scraper.scrape_cocktails
     #binding.pry
-    print_cocktails
+    list_cocktails
     #input = ""
     #while input != "exit" do
       #puts "Which cocktail recipe would you like to make?"
@@ -20,11 +20,16 @@ class CLI
     goodbye
   end
 
-  def print_cocktails
+  def list_cocktails
     #Cocktail.all.each.with_index(1) do |cocktail, index|
       #puts "#{index} #{cocktail.name}"
     #end
     puts "list cocktails"
+    @cocktails = Cocktail.all
+    @cocktails.each.with_index(1) do |cocktail, i|
+      puts "#{i}. #{cocktail} - #{cocktail.name} - #{cocktail.description}"
+
+    end
   end
 
   def menu
@@ -32,13 +37,11 @@ class CLI
     while input != "exit"
       puts "Enter the number of the cocktail you would like more info on or type list to see the cocktails again or type exit"
       input = gets.strip.downcase
-      case input
-      when "1"
-        puts "more info on deal 1"
-      when "2"
-        puts "more info until deal 2"
-      when "list"
-        print_cocktails
+
+      if input.to_i > 0
+        puts@cocktails[input.to_i-1]
+      elsif input == "list"
+        list_cocktails
       else
         puts "Not sure what you want, type list or exit."
       end

@@ -1,4 +1,4 @@
-class Cocktail
+class BestCocktails::Cocktail
 
   attr_accessor :name, :url, :description, :ingredients, :recipe
 
