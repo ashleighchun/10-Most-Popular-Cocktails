@@ -1,4 +1,4 @@
-# Worlds Best Restaurants
+# 10 Best Cocktails 
 ### This is an adaptation of the original gem written by ashleighchun. I have added in CSS selectors in the cocktail.rb file, and updated the scraped urls to use https instead of http.
 
 This Ruby Gem provides a CLI to view the 50 best restaurants in the World as per the San Pellegrino sponsored 50 Best Restaurants in the World website.
