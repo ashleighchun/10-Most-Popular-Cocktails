@@ -6,10 +6,15 @@ class Scraper
 
     doc.css("div .listicle-slide").each do |cocktail|
       new_cocktail = Cocktail.new
-      new_cocktail.name = cocktail.css(".listicle-slide-hed").css(".listicle-slide-hed-text").children[0].text
       #populate all 5 details of top level scrape
-      new_cocktail.ingredients =
+      new_cocktail.name = cocktail.css(".listicle-slide-hed").css(".listicle-slide-hed-text").children[0].text
+
+      new_cocktail.description = cocktail.css(".listicle-body-content").css(".listicle-slide-dek p")[0].text
       binding.pry
+
+      #new_cocktail.ingredient_amounts =
+      #new_cocktail.url =
+
     end
 
 
