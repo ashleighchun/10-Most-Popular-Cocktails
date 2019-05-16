@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/best_cocktails"
+require_relative "../config/environment"
 
-BestCocktails::CLI.new.run
+CLI.new.run
