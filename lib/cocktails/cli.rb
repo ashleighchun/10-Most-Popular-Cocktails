@@ -6,37 +6,35 @@ class CLI
     puts ""
     puts "------------------------"
     puts ""
-    Scraper.get_cocktails #scrapes all of the cocktails
-    list_cocktails
-    menu
-    goodbye
+    Scraper.scrape_cocktails #scrapes all of the cocktails
+    print_cocktails
+    input = ""
+    while input != "exit" do
+      puts "Which cocktail would you like to see details on?"
+      puts "Enter the number of the cocktail or type 'exit'."
+      input = gets.strip.downcase
+
+      #now scrape the page of the cocktail selected if it has not already been scraped
+      Scraper.scrape_cocktail_details(Cocktail.all[input.to_i-1]) if !Cocktail.all[input.to_i-1].what_you_need
+      print_cocktail_details
+      #iterate through details
+      #prompt user again: would you like to see another cocktail?
+
+
+    end
   end
 
-  def list_cocktails
+  def print_cocktails
     @cocktails = Cocktail.all
     @cocktails.each.with_index(1) do |cocktail, i|
       puts "#{i}. #{cocktail.name}" #" - #{cocktail.description}"
-
     end
   end
 
-  def menu
-    input = nil
-    while input != "exit"
-      puts "Enter the number of the cocktail you would like more info on or type list to see the cocktails again or type exit"
-      input = gets.strip.downcase
-
-      if input.to_i (0..10)
-        puts@cocktails[input.to_i-1]
-      elsif input == "list"
-        list_cocktails
-      else
-        puts "Not sure what you want, type list or exit."
-      end
-    end
-  end
-
-  def goodbye
-    puts "Later!"
+  def print_cocktail_details(cocktail)
+    @cocktail_details = Cocktail.all
+    #@cocktail_details.each do |detail|
+      #puts "" #puts text that user needs to see from cli
+    #end
   end
 end

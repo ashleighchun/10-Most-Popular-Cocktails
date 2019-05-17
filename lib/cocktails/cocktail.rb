@@ -1,6 +1,6 @@
 class Cocktail
 
-  attr_accessor :name, :url, :description, :directions, :ingredient_amounts, :what_you_need, :prep_time
+  attr_accessor :name, :url, :description, :directions, :ingredient_amounts, :what_you_need
 
   @@all = []
 
