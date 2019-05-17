@@ -8,12 +8,17 @@ class Scraper
       new_cocktail = Cocktail.new
       #populate all 5 details of top level scrape
       new_cocktail.name = cocktail.css(".listicle-slide-hed").css(".listicle-slide-hed-text").children[0].text
+      new_cocktail.description = cocktail.css(".listicle-slide-dek p")[0].text
 
-      new_cocktail.description = cocktail.css(".listicle-body-content").css(".listicle-slide-dek p")[0].text
-      binding.pry
+      new_cocktail.ingredient_amounts = []
+      i = 2
+      until cocktail.css(".listicle-slide-dek p")[i].text == "Directions"
+        new_cocktail.ingredient_amounts << cocktail.css(".listicle-slide-dek p")[i].text
+        i += 1
+      end
 
-      #new_cocktail.ingredient_amounts =
-      #new_cocktail.url =
+      new_cocktail.directions = cocktail.css(".listicle-slide-dek p")[i+1].text
+      new_cocktail.url = cocktail.css(".listicle-slide-dek p")[i+2].css('em').css('a').attr('href').value
 
     end
 

@@ -22,7 +22,7 @@ class CLI
       puts "Enter the number of the cocktail you would like more info on or type list to see the cocktails again or type exit"
       input = gets.strip.downcase
 
-      if input.to_i > 0
+      if input.to_i > 0 && < 11
         puts@cocktails[input.to_i-1]
       elsif input == "list"
         list_cocktails
