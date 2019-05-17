@@ -7,7 +7,7 @@ class Scraper
     doc.css("div .listicle-slide").each do |cocktail|
       new_cocktail = Cocktail.new
       #populate all 5 details of top level scrape
-      new_cocktail.name = cocktail.css(".listicle-slide-hed").css(".listicle-slide-hed-text").children[0].text
+      new_cocktail.name = cocktail.css(".listicle-slide-hed").css(".listicle-slide-hed-text").children[0].text.gsub(/\d+\W/,"").strip
       new_cocktail.description = cocktail.css(".listicle-slide-dek p")[0].text
 
       new_cocktail.ingredient_amounts = []
@@ -19,10 +19,7 @@ class Scraper
 
       new_cocktail.directions = cocktail.css(".listicle-slide-dek p")[i+1].text
       new_cocktail.url = cocktail.css(".listicle-slide-dek p")[i+2].css('em').css('a').attr('href').value
-
     end
-
-
   end
 
   def self.scrape_cocktail_details(cocktail) #takes in the object to add details to
