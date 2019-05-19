@@ -1,5 +1,5 @@
 # 10 Best Cocktails
-### This is an adaptation of the original gem written by ashleighchun. I have added in CSS selectors in the cocktail.rb file, and updated the scraped urls to use https instead of http.
+### This is an adaptation of the original gem written by ashleighchun. I have added in CSS selectors in the environment.rb file, and updated the scraped urls to use https instead of http.
 
 This Ruby Gem provides a CLI to view the 10 best cocktails and a guide to how to make them as per the '10 Most Popular Cocktails to Order at Bars 2018' article on the Esquire website.
 
