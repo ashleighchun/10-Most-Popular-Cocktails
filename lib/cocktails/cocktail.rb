@@ -5,6 +5,7 @@ class Cocktail
   @@all = []
 
   def initialize
+    @what_you_need = {}
     @@all << self
   end
 

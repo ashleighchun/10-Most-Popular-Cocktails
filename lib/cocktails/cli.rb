@@ -1,40 +1,69 @@
 class CLI
 
   def run
+    puts ""
     puts "Welcome the the 10 Best Cocktails and How to Make Them!"
     puts "Here is our cocktail menu:"
     puts ""
-    puts "------------------------"
+    puts "------------------------".colorize(:blue)
     puts ""
     Scraper.scrape_cocktails #scrapes all of the cocktails
     print_cocktails
-    input = ""
+    puts ""
+    puts "------------------------".colorize(:blue)
+    puts ""
+    input = nil
     while input != "exit" do
-      puts "Which cocktail would you like to see details on?"
-      puts "Enter the number of the cocktail or type 'exit'."
+      puts "Which cocktail would you like to see details on?".colorize(:blue)
+      puts "Enter the number of the cocktail, type 'list' to see the list again or type 'exit'.".colorize(:blue)
       input = gets.strip.downcase
-
-      #now scrape the page of the cocktail selected if it has not already been scraped
-      Scraper.scrape_cocktail_details(Cocktail.all[input.to_i-1]) if !Cocktail.all[input.to_i-1].what_you_need
-      print_cocktail_details
-      #iterate through details
-      #prompt user again: would you like to see another cocktail?
-
-
+      if  input.to_i == (1...10)
+        binding.pry
+        #now scrape the page of the cocktail selected if it has not already been scraped
+        Scraper.scrape_cocktail_details(Cocktail.all[input.to_i-1]) if Cocktail.all[input.to_i-1].what_you_need == {}
+        print_cocktail_details(Cocktail.all[input.to_i-1])
+        #iterate through details
+        #prompt user again: would you like to see another cocktail?
+      elsif input == "list"
+        print_cocktails
+      else
+        puts "Not sure what you want, type list or exit"
+      end
     end
   end
 
   def print_cocktails
     @cocktails = Cocktail.all
     @cocktails.each.with_index(1) do |cocktail, i|
-      puts "#{i}. #{cocktail.name}" #" - #{cocktail.description}"
+      puts "#{i}. #{cocktail.name}".colorize(:blue) #" - #{cocktail.description}"
     end
   end
 
   def print_cocktail_details(cocktail)
-    @cocktail_details = Cocktail.all
-    #@cocktail_details.each do |detail|
-      #puts "" #puts text that user needs to see from cli
-    #end
+    puts "#{cocktail.name}".colorize(:blue)
+    puts "------------------------".colorize(:blue)
+    puts "Description:".colorize(:blue)
+    puts "#{cocktail.description}"
+    puts ""
+    puts "What you'll need:".colorize(:blue)
+    if cocktail.what_you_need != {}
+      cocktail.what_you_need.each do |item|
+        #item is an array with 2 elements, index 0 is the name, index 1 is a hash
+        puts item[0].colorize(:red)
+        puts "   Price: #{item[1]["price"]}"
+        puts "   Can be purchased at #{item[1]["where_to_buy"]}"
+      end
+    else
+      puts "Unfortunately not listed :(".colorize(:red)
+    end
+    puts ""
+    puts "Ingredient amounts:".colorize(:blue)
+    cocktail.ingredient_amounts.each do |item|
+      puts item
+    end
+    puts ""
+    puts "Directions:".colorize(:blue)
+    puts "#{cocktail.directions}"
+    puts ""
   end
 end

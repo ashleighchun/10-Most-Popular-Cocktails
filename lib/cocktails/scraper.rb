@@ -26,12 +26,13 @@ class Scraper
     #do you already know details?/if yes dont call this method
     html = open("#{cocktail.url}")
     doc = Nokogiri::HTML(html)
-    doc.css("div .gallery-list").each do |i|
-      item = Cocktail.new
-      item.name = i.css("div .product-headline")[0].text
-      item.price = i.css("div .product-slide-details .product-slide-brand")[0].text
-      item.where_to_buy = i.css(" .embedded-product-button-wrapper .product-btn-link").css('a').attr('href').value
-binding.pry
+    nodes = doc.css("div .gallery-list .list-item")
+    nodes.each_with_index do |i, index|
+
+      ingredient_name = nodes.css(".product-headline")[index].text
+      cocktail.what_you_need[ingredient_name] = {"price" => nodes.css("div .product-slide-details .product-slide-brand")[index].text, "where_to_buy" => nodes.css(".product-slide-details .product-slide-vendor")[index].text}
+
+
     end
   end
 end
