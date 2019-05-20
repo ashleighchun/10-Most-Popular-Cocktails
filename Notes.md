@@ -15,11 +15,19 @@ user types cocktail
 
 show list of cocktails
 
-1.
-2.
+1. a
+2. b
 3. etc
 
-Which product would you like to learn more about?
+Which cocktail would you like to learn more about?
+
+user input
+
+show cocktial details
+
+list again
+
+or exit
 
 What is a cocktail?
 
@@ -27,4 +35,4 @@ A cocktail has a name
 A cocktail has a discription
 A cocktail has a url
 A cocktail has ingredients
-A cocktail has a recipe 
+A cocktail has a recipe
