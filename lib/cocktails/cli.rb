@@ -41,9 +41,13 @@ class CLI
   end
 
   def print_cocktail_details(cocktail)
-    puts "------------------------".colorize(:blue)
-    puts "#{cocktail.name}".colorize(:blue)
-    puts "------------------------".colorize(:blue)
+    puts ""
+    puts ""
+    puts "------------------------".colorize(:green)
+    puts "#{cocktail.name}".colorize(:green)
+    puts "------------------------".colorize(:green)
+    puts ""
+    puts ""
     puts "Description:".colorize(:blue)
     puts "#{cocktail.description}"
     puts ""
@@ -66,7 +70,7 @@ class CLI
     puts ""
     puts "Directions:".colorize(:blue)
     puts "#{cocktail.directions}"
-    puts "------------------------".colorize(:blue)
+    puts "------------------------".colorize(:green)
     puts ""
   end
 end
