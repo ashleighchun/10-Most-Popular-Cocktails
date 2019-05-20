@@ -17,17 +17,18 @@ class CLI
       puts "Which cocktail would you like to see details on?".colorize(:blue)
       puts "Enter the number of the cocktail, type 'list' to see the list again or type 'exit'.".colorize(:blue)
       input = gets.strip.downcase
-      if  input.to_i == (1...10)
-        binding.pry
+      case input.to_i
+      when 1..10
+        #binding.pry
         #now scrape the page of the cocktail selected if it has not already been scraped
         Scraper.scrape_cocktail_details(Cocktail.all[input.to_i-1]) if Cocktail.all[input.to_i-1].what_you_need == {}
         print_cocktail_details(Cocktail.all[input.to_i-1])
         #iterate through details
         #prompt user again: would you like to see another cocktail?
-      elsif input == "list"
+      when "list"
         print_cocktails
       else
-        puts "Not sure what you want, type list or exit"
+        puts "Not sure what you want, type 'list' or 'exit'.".colorize(:red)
       end
     end
   end
@@ -40,6 +41,7 @@ class CLI
   end
 
   def print_cocktail_details(cocktail)
+    puts "------------------------".colorize(:blue)
     puts "#{cocktail.name}".colorize(:blue)
     puts "------------------------".colorize(:blue)
     puts "Description:".colorize(:blue)
@@ -64,6 +66,7 @@ class CLI
     puts ""
     puts "Directions:".colorize(:blue)
     puts "#{cocktail.directions}"
+    puts "------------------------".colorize(:blue)
     puts ""
   end
 end
